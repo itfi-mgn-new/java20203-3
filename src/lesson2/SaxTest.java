@@ -16,14 +16,10 @@ public class SaxTest {
 		final MyHandler h = new MyHandler(); 
 		
 		parser.parse(SaxTest.class.getResourceAsStream("test.xml"), h);
+		
 	}
 
 	public static class MyHandler extends DefaultHandler {
-	    private static final String ARTICLES = "articles";
-	    private static final String ARTICLE = "article";
-	    private static final String TITLE = "title";
-	    private static final String CONTENT = "content";
-
 	    private StringBuilder value = new StringBuilder();
 
 	    @Override
