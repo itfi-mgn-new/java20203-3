@@ -140,6 +140,7 @@ public class InputTest extends JFrame implements ActionListener {
             				  content.read(rdr, item);
             			  }
             		  }
+            		  dtde.dropComplete(true);
             	  }
             	  else {
             		  dtde.rejectDrop();
