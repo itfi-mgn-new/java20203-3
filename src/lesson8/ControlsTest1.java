@@ -1,6 +1,8 @@
 package lesson8;
 
 import java.awt.GridLayout;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.util.Arrays;
 
 import javax.swing.JButton;
@@ -14,6 +16,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JSlider;
 import javax.swing.JSpinner;
 import javax.swing.JToggleButton;
+import javax.swing.SwingUtilities;
 
 public class ControlsTest1 extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -35,11 +38,31 @@ public class ControlsTest1 extends JFrame {
 		getContentPane().add(toggle);
 		getContentPane().add(check);
 		getContentPane().add(comboBox);
-		getContentPane().add(list);
+		getContentPane().add(new JScrollPane(list));
 		getContentPane().add(progress);
 		getContentPane().add(scroll);
 		getContentPane().add(slider);
 		getContentPane().add(spinner);
+		
+		spinner.setToolTipText("press spinner, please");
+		FocusListener fl = new FocusListener() {
+			@Override
+			public void focusLost(FocusEvent e) {
+				// TODO Auto-generated method stub
+				System.err.println("Exit!!!!!");
+			}
+			
+			@Override
+			public void focusGained(FocusEvent e) {
+				// TODO Auto-generated method stub
+				System.err.println("Enter!!!!!"+e.getSource().getClass());
+			}
+		};
+		
+		SwingUtilities.invokeLater(()->button.requestFocusInWindow());
+		button.addFocusListener(fl);
+		toggle.addFocusListener(fl);
+		check.addFocusListener(fl);
 		
 		progress.setValue(50);
 		progress.setStringPainted(true);

@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
@@ -33,18 +34,19 @@ public class ControlsTest2 extends JFrame {
 		radioPanel.add(radio2);
 		radioPanel.add(radio3);
 		
-//		radioGroup.add(radio1);
-//		radioGroup.add(radio2);
-//		radioGroup.add(radio3);
+		radioGroup.add(radio1);
+		radioGroup.add(radio2);
+		radioGroup.add(radio3);
 		radioPanel.setBorder(new TitledBorder("Radios"));
 		
 		getContentPane().add(radioPanel);
 		getContentPane().add(tf);
 		getContentPane().add(pf);
-		getContentPane().add(ta);
+		getContentPane().add(new JScrollPane(ta));
 		getContentPane().add(ep);
 		
 		ep.setEditable(false);
+		
 		
 	}
 

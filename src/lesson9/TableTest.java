@@ -1,10 +1,16 @@
 package lesson9;
 
+import java.awt.Color;
+import java.awt.Component;
+
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableModel;
 
 public class TableTest extends JFrame {
@@ -13,9 +19,21 @@ public class TableTest extends JFrame {
 	
 	
 	public TableTest() {
-		table.setModel(new PersonModel(new Person("Ivanov","Ivan","Ivanovich",21)));
+		table.setModel(new PersonModel(new Person("Ivanov","Ivan","Ivanovich",21), new Person("Ivanov2","Ivan2","Ivanovich2",21)));
 		getContentPane().add(new JScrollPane(table));
 		setSize(640,480);
+//		table.setDefaultRenderer(Integer.class, new TableCellRenderer() {
+//			@Override
+//			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+//				// TODO Auto-generated method stub
+//				final JLabel result = new JLabel(value.toString());
+//				
+//				result.setOpaque(true);
+//				result.setBackground(row % 2 == 0 ? Color.RED : Color.GREEN);
+//				
+//				return new JButton("skdjksdj");//result;
+//			}
+//		});
 		setLocationRelativeTo(null);
 	}
 
@@ -97,7 +115,7 @@ public class TableTest extends JFrame {
 				default : return null;
 			}
 		}
-
+		
 		@Override
 		public void setValueAt(final Object aValue, final int rowIndex, final int columnIndex) {
 		}
