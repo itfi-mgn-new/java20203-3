@@ -1,6 +1,7 @@
 package lesson11;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Rectangle;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.UnsupportedFlavorException;
@@ -112,6 +113,10 @@ public class InputTest extends JFrame implements ActionListener {
 					
 					if (!check) {
 						System.err.println("Content can't be empty");
+						input.setBackground(Color.red);
+					}
+					else {
+						input.setBackground(Color.white);
 					}
 					return check;
 				}
